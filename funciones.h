@@ -108,7 +108,7 @@ void mostrarVector(int v[], int tam)
 int contarNumerosRepetidos(int v[], int tam, int numero)
 {
     int i, cant=0;
-    for(i=0; i<tam-1; i++)
+    for(i=0; i<tam; i++)  ///OJO! LE CAMBIÉ TAM-1 X TAM
     {
         if(v[i]==numero)
             cant++;

@@ -9,13 +9,13 @@
 
 using namespace std;
 
-/// DECLARACIÓN/PROTOTIPO DE FUNCIONES
+/// DECLARACION DE FUNCIONES
 
 int juego2Part(char name [2][25], int v1[], int v2[]); ///juego para 2 participantes
 
 void juegoXPart(); ///juego para X participantes
 
-/// Desarrollo de funciones
+/// DESARROLLO DE FUNCIONES
 
 int juego2Part (char jugador [2][25], int puntaje[2], int tiradas[2])
 {
@@ -26,6 +26,8 @@ int juego2Part (char jugador [2][25], int puntaje[2], int tiradas[2])
     cantRondas=inicioJuego();
     cout<<endl;
     cargarJugadores(jugador, 2);
+    cout<<endl;
+    cout<<endl;
     system("pause");
     system("cls");
     for (i=1; i<=cantRondas; i++)
@@ -35,13 +37,7 @@ int juego2Part (char jugador [2][25], int puntaje[2], int tiradas[2])
         {
             ponerCero(resultados,2);
             entreTurno(nroRonda, jugador[j], puntaje[j], tiradas[j]);
-            cout<<"-----------------------------------------------------"<<endl;
-            cout<<"TURNO DE "<<jugador[j]<<" | ";
-            cout<<"RONDA N° "<<nroRonda<<" | ";
-            cout<<"PUNTAJE ACUMULADO: "<<puntaje[j]<<" PUNTOS"<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
-            Sleep(1000);
-            cout<<endl;
+            cartelTurno(jugador[j], nroRonda, puntaje[j]);
             turno(resultados);
             puntaje[j]+=resultados[0];
             tiradas[j]+=resultados[1];
@@ -50,15 +46,11 @@ int juego2Part (char jugador [2][25], int puntaje[2], int tiradas[2])
         }
     }
     puntajeTot(puntaje, 2);
-    ganador=maximoVector(puntaje,2);
-    repetidos=contarNumerosRepetidos(puntaje, 2, puntaje[ganador]); ///REVISAR ESTO MUESTRA MAL LOS CARTELES
-    if (repetidos!=1)
+    ganador=maximoVector(puntaje, 2);
+    repetidos=contarNumerosRepetidos(puntaje, 2, puntaje[ganador]);
+    if (repetidos==1)
     {
-        cout<<"-----------------------------------------------------"<<endl;
-        cout<<"EL GANADOR (ESTA VEZ) ES "<<jugador[ganador]<<endl;
-        cout<<"SU PUNTAJE FUE: "<<puntaje[ganador]<<" PUNTOS"<<endl;
-        cout<<"LO ALCANZO EN "<<tiradas[ganador]<<" TIRADAS"<<endl;
-        cout<<"-----------------------------------------------------"<<endl;
+        ganadorPuntos(jugador[ganador], puntaje[ganador], tiradas[ganador]);
         return ganador;
     }
     else
@@ -67,30 +59,18 @@ int juego2Part (char jugador [2][25], int puntaje[2], int tiradas[2])
         {
             if (tiradas[0]<tiradas[1])
             {
-                cout<<"-----------------------------------------------------"<<endl;
-                cout<<"EL GANADOR (ESTA VEZ) ES "<<jugador[0]<<endl;
-                cout<<"SUS PUNTAJES FUERON IDENTICOS! TOTAL: "<<puntaje[0]<<" PUNTOS"<<endl;
-                cout<<"PERO EL LO ALCANZO EN "<<tiradas[0]<<" TIRADAS"<<endl;
-                cout<<"-----------------------------------------------------"<<endl;
+                ganadorTiradas(jugador[0], puntaje[0], tiradas[0]);
                 return 0;
             }
             else
             {
-                cout<<"-----------------------------------------------------"<<endl;
-                cout<<"EL GANADOR (ESTA VEZ) ES "<<jugador[1]<<endl;
-                cout<<"SUS PUNTAJES FUERON IDENTICOS! TOTAL: "<<puntaje[1]<<" PUNTOS"<<endl;
-                cout<<"PERO EL LO ALCANZO EN "<<tiradas[1]<<" TIRADAS"<<endl;
-                cout<<"-----------------------------------------------------"<<endl;
+                ganadorTiradas(jugador[1], puntaje[1], tiradas[1]);
                 return 1;
             }
         }
         else
         {
-            cout<<"-----------------------------------------------------"<<endl;
-            cout<<"EMPATE!!"<<endl;
-            cout<<"SU PUNTAJE FUE: "<<puntaje[ganador]<<" PUNTOS"<<endl;
-            cout<<"LO ALCANZARON EN "<<tiradas[ganador]<<" TIRADAS"<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
+            empate(puntaje[ganador], tiradas[ganador]);
             return -1;
         }
     }
@@ -102,6 +82,8 @@ int juegoXPart (char jugador [][25], int puntaje[], int tiradas[])
     int resultados[2];
     cantRondas=inicioJuego();
     cout<<endl;
+    cout<<endl;
+    system("pause");
     system("cls");
     cout<<"-----------------------------------------------------"<<endl;
     cout<<"ESTA MODALIDAD PERMITE JUGAR DE A 3 A 10 JUGADORES."<<endl;
@@ -109,15 +91,13 @@ int juegoXPart (char jugador [][25], int puntaje[], int tiradas[])
     cout<<endl;
     cout<<"> INGRESE LA CANTIDAD DE JUGADORES: ";
     cantJug=cantJugadores();
-
     if (cantJug!=0)
     {
-        system("cls");
         ponerCero(puntaje,cantJug);
         ponerCero(tiradas,cantJug);
-        cout<<"------------------------------------------------"<<endl;  ///vuelve aca
+        cout<<endl;
         cargarJugadores(jugador, cantJug);
-        cout<<"------------------------------------------------"<<endl;
+        cout<<endl;
         cout<<endl;
         system("pause");
         system("cls");
@@ -128,13 +108,7 @@ int juegoXPart (char jugador [][25], int puntaje[], int tiradas[])
             {
                 ponerCero(resultados,2);
                 entreTurno(nroRonda, jugador[j], puntaje[j], tiradas[j]);
-                cout<<"-----------------------------------------------------"<<endl;
-                cout<<"TURNO DE "<<jugador[j]<<" | ";
-                cout<<"RONDA NRO. "<<nroRonda<<" | ";
-                cout<<"PUNTAJE ACUMULADO: "<<puntaje[j]<<" PUNTOS"<<endl;
-                cout<<"-----------------------------------------------------"<<endl;
-                Sleep(1000);
-                cout<<endl;
+                cartelTurno(jugador[j], nroRonda, puntaje[j]);
                 turno(resultados);
                 puntaje[j]+=resultados[0];
                 tiradas[j]+=resultados[1];
@@ -145,25 +119,14 @@ int juegoXPart (char jugador [][25], int puntaje[], int tiradas[])
         puntajeTot(puntaje, cantJug);
         ganador=maximoVector(puntaje, cantJug);
         repetidos=contarNumerosRepetidos(puntaje, cantJug, puntaje[ganador]);
-        if (repetidos!=1)           ///FALTA COMPARAR CANTIDAD DE TIRADAS EN CASO DE EMPATE
+        if (repetidos==1)
         {
-            cout<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
-            cout<<"EL GANADOR (ESTA VEZ) ES "<<jugador[ganador]<<"!!!"<<endl;
-            cout<<"SU PUNTAJE FUE: "<<puntaje[ganador]<<" PUNTOS"<<endl;
-            cout<<"LO ALCANZO EN "<<tiradas[ganador]<<" TIRADAS"<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
+            ganadorPuntos(jugador[ganador], puntaje[ganador], tiradas[ganador]);
             return ganador;
-
         }
-        else
+        else ///FALTA COMPARAR CANTIDAD DE TIRADAS DE TODOS LOS JUGADORES EN CASO DE EMPATE X PUNTOS
         {
-            cout<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
-            cout<<"EMPATE!!"<<endl;
-            cout<<"SU PUNTAJE FUE: "<<puntaje[ganador]<<" PUNTOS"<<endl;
-            cout<<"LO ALCANZARON EN "<<tiradas[ganador]<<" TIRADAS"<<endl;
-            cout<<"-----------------------------------------------------"<<endl;
+            empate(puntaje[ganador], tiradas[ganador]);
             return -1;
         }
     }

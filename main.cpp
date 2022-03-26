@@ -8,6 +8,7 @@ using namespace std;
 
 #include "funciones.h"
 #include "funciones2.h"
+#include "carteles.h"
 #include "juegoSimul.h"
 #include "juegoMult.h"
 #include "juegoMaq.h"
@@ -16,7 +17,7 @@ int main()
 {
     int opc;
     char jugador [10][25];
-    int puntaje [10], tiradas [10], maxGanador;
+    int puntaje [10], tiradas [10], maxGanador=-2;
     while (true)
     {
         system("cls");
@@ -49,31 +50,39 @@ int main()
             maxGanador=juegoVsXMaq(jugador, puntaje, tiradas);
             break;
         case 5:
-            if (maxGanador==-1)   ///FALTA COMPARAR PUNTAJES DE DISTINTOS JUEGOS
+            if (maxGanador==-2)
             {
                 cout<<endl;
-                cout<<"EMPATE! EL PUNTAJE MAS ALTO ES DE AMBOS"<<endl;
-                cout<<"PUNTAJE MAS ALTO: "<<puntaje[maxGanador]<<endl;  ///ACÁ HAY UN PROBLEMA
-                cout<<"CANTIDAD DE TIROS: "<<tiradas[maxGanador]<<endl;
+                cout<<"MMM... AUN NO HAS INICIADO UN JUEGO.";
             }
             else
             {
-                cout<<endl;
-                cout<<"> JUGADOR "<<jugador[maxGanador]<<endl;
-                cout<<"PUNTAJE MAS ALTO: "<<puntaje[maxGanador]<<endl;
-                cout<<"CANTIDAD DE TIROS: "<<tiradas[maxGanador]<<endl;
+                if (maxGanador==-1)   ///FALTA COMPARAR PUNTAJES DE DISTINTOS JUEGOS
+                {
+                    cout<<endl;
+                    cout<<"EMPATE! EL PUNTAJE MAS ALTO ES DE AMBOS"<<endl;
+                    cout<<"PUNTAJE MAS ALTO: "<<puntaje[maxGanador]<<endl;  ///ACÁ HAY UN PROBLEMA
+                    cout<<"CANTIDAD DE TIROS: "<<tiradas[maxGanador]<<endl;
+                }
+                else
+                {
+                    cout<<endl;
+                    cout<<"> JUGADOR "<<jugador[maxGanador]<<endl;
+                    cout<<"PUNTAJE MAS ALTO: "<<puntaje[maxGanador]<<endl;
+                    cout<<"CANTIDAD DE TIROS: "<<tiradas[maxGanador]<<endl;
+                }
             }
             break;
-            case 6:
-                maxGanador=modoSimulado(jugador,puntaje,tiradas);
-                break;
-            case 0:
-                return 0;
-                break;
-            default:
-                cout<<endl;
-                cout<<"-------ERROR-------"<<endl<<endl;
-                break;
+        case 6:
+            maxGanador=modoSimulado(jugador,puntaje,tiradas);
+            break;
+        case 0:
+            return 0;
+            break;
+        default:
+            cout<<endl;
+            cout<<"-------ERROR-------"<<endl<<endl;
+            break;
         }
         system("pause>null");
     }

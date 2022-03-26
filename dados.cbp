@@ -32,16 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="carteles.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="funciones.h" />
 		<Unit filename="funciones2.h" />
 		<Unit filename="juegoMaq.h" />
 		<Unit filename="juegoMult.h" />
 		<Unit filename="juegoSimul.h" />
 		<Unit filename="main.cpp" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -490,9 +490,8 @@ int modoSimulado(char jugador [][25], int puntaje[2], int tiradas[2])
     ponerCero(tiradas,2);
     cantRondas=inicioJuego();
     cout<<endl;
-    system("cls");
-    cout<<endl;
     cargarJugadores(jugador, 2);
+    cout<<endl;
     cout<<endl;
     system("pause");
     system("cls");

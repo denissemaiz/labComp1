@@ -10,8 +10,7 @@
 
 using namespace std;
 
-
-/// DECLARACIÓN/PROTOTIPO DE FUNCIONES
+/// DECLARACION DE FUNCIONES
 
 int inicioJuego(); ///da inicio a todos los juegos preguntando cuántas rondas se jugarán
 
@@ -19,7 +18,9 @@ void cargarJugadores(char v[][25], int tam); ///pide los nombres de los jugadore
 
 void mostrarJugadores(char v[][25], int tam); ///muestra los nombres de los jugadores
 
-int cantJugadores (); ///pide ingreso de cantidad de jugadores
+int cantJugadores (); ///pide ingreso de cantidad de jugadores que jugarán
+
+int cantMaquinas (); ///pide ingreso de cantidad de maquinas contra las que se jugarán
 
 void puntajeTot (int v[], int tam); ///muestra los puntajes totales de cada jugador al finalizar la partida
 
@@ -81,6 +82,23 @@ int cantJugadores ()
         system("cls");
         cout<<endl;
         cout<<"-------ERROR-------"<<endl<<endl;
+        return 0;
+    }
+    else
+    {
+        return cant;
+    }
+}
+
+int cantMaquinas ()
+{
+    int cant;
+    cin>>cant;
+    if (cant<2||cant>10)
+    {
+        system("cls");
+        cout<<endl;
+        cout<<"-------ERROR-------"<<endl<<endl;
         system("pause");
         return 0;
     }
@@ -107,10 +125,11 @@ void entreTurno (int ronda, char jugador[25], int puntaje, int tiradas)
 {
     cout<<endl;
     cout<<"-----------------------------------------------------"<<endl;
-    cout<<"RONDA NRO. "<<ronda<<endl;
+    printf("RONDA N%c ",167);
+    cout<<ronda<<endl;
     cout<<"-----------------------------------------------------"<<endl;
     cout<<"PROXIMO TURNO: "<<jugador<<endl;
-    cout<<"PUNTAJE ACUMULADO: "<<puntaje<<" PUNTOS"<<endl;
+    cout<<"PUNTAJE ACUMULADO: "<<puntaje<<endl;
     cout<<"CANTIDAD DE TIRADAS: "<<tiradas<<endl;
     cout<<"-----------------------------------------------------"<<endl;
     cout<<endl;
@@ -124,7 +143,8 @@ void turno(int valores[2])
     int dados [5], puntaje=0, tiradas=0;
     bool frenar=false;
     cout<<"-----------------------------------------------------"<<endl;
-    cout<<"TIRADA N°1"<<endl;
+    printf("TIRADA N%c 1",167);
+    cout<<endl;
     cout<<"-----------------------------------------------------"<<endl;
     tiradas+=1;
     cout<<endl;
@@ -141,7 +161,8 @@ void turno(int valores[2])
         system("pause>null");
         cout<<endl;
         cout<<"-----------------------------------------------------"<<endl;
-        cout<<"TIRADA N°2"<<endl;
+        printf("TIRADA N%c 2",167);
+        cout<<endl;
         cout<<"-----------------------------------------------------"<<endl;
         tiradas+=1;
         cout<<endl;
@@ -160,7 +181,8 @@ void turno(int valores[2])
             system("pause>null");
             cout<<endl;
             cout<<"-----------------------------------------------------"<<endl;
-            cout<<"TIRADA N°2"<<endl;
+            printf("TIRADA N%c 2",167);
+            cout<<endl;
             cout<<"-----------------------------------------------------"<<endl;
             tiradas+=1;
             cout<<endl;
@@ -179,7 +201,8 @@ void turno(int valores[2])
                 system("pause>null");
                 cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
-                cout<<"TIRADA N°2"<<endl;
+                printf("TIRADA N%c 2",167);
+    cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 tiradas+=1;
                 cout<<endl;
@@ -201,7 +224,8 @@ void turno(int valores[2])
                 {
                 case 1:
                     cout<<"-----------------------------------------------------"<<endl;
-                    cout<<"TIRADA N°2"<<endl;
+                    printf("TIRADA N%c 2",167);
+    cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
                     tiradas+=1;
                     cout<<endl;
@@ -217,7 +241,8 @@ void turno(int valores[2])
                     case 1:
                         frenar=true;
                         cout<<"-----------------------------------------------------"<<endl;
-                        cout<<"TIRADA N°3"<<endl;
+                        printf("TIRADA N%c 3",167);
+    cout<<endl;
                         cout<<"-----------------------------------------------------"<<endl;
                         tiradas+=1;
                         cout<<endl;
@@ -264,7 +289,8 @@ void turno(int valores[2])
                 system("pause>null");
                 cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
-                cout<<"TIRADA N°3"<<endl;
+                printf("TIRADA N%c 3",167);
+    cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 tiradas+=1;
                 cout<<endl;
@@ -284,7 +310,8 @@ void turno(int valores[2])
                     system("pause>null");
                     cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
-                    cout<<"TIRADA N°3"<<endl;
+                    printf("TIRADA N%c 3",167);
+    cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
                     tiradas+=1;
                     cout<<endl;
@@ -304,7 +331,8 @@ void turno(int valores[2])
                         system("pause>null");
                         cout<<endl;
                         cout<<"-----------------------------------------------------"<<endl;
-                        cout<<"TIRADA N°3"<<endl;
+                        printf("TIRADA N%c 3",167);
+    cout<<endl;
                         cout<<"-----------------------------------------------------"<<endl;
                         tiradas+=1;
                         cout<<endl;
@@ -328,7 +356,8 @@ void turno(int valores[2])
                         case 1:
                             frenar=true;
                             cout<<"-----------------------------------------------------"<<endl;
-                            cout<<"TIRADA N°3"<<endl;
+                            printf("TIRADA N%c 3",167);
+    cout<<endl;
                             cout<<"-----------------------------------------------------"<<endl;
                             tiradas+=1;
                             cout<<endl;
@@ -361,7 +390,8 @@ void turno(int valores[2])
                 system("pause>null");
                 cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
-                cout<<"TIRADA N°3"<<endl;
+                printf("TIRADA N%c 3",167);
+    cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 tiradas+=1;
                 cout<<endl;
@@ -381,7 +411,8 @@ void turno(int valores[2])
                     system("pause>null");
                     cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
-                    cout<<"TIRADA N°3"<<endl;
+                    printf("TIRADA N%c 3",167);
+    cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
                     tiradas+=1;
                     cout<<endl;
@@ -405,7 +436,8 @@ void turno(int valores[2])
                     case 1:
                         frenar=true;
                         cout<<"-----------------------------------------------------"<<endl;
-                        cout<<"TIRADA N°3"<<endl;
+                        printf("TIRADA N%c 3",167);
+    cout<<endl;
                         cout<<"-----------------------------------------------------"<<endl;
                         tiradas+=1;
                         cout<<endl;
@@ -437,7 +469,8 @@ void turno(int valores[2])
                 system("pause>null");
                 cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
-                cout<<"TIRADA N°3"<<endl;
+                printf("TIRADA N%c 3",167);
+    cout<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 tiradas+=1;
                 cout<<endl;
@@ -461,7 +494,8 @@ void turno(int valores[2])
                 case 1:
                     frenar=true;
                     cout<<"-----------------------------------------------------"<<endl;
-                    cout<<"TIRADA N°3"<<endl;
+                    printf("TIRADA N%c 3",167);
+    cout<<endl;
                     cout<<"-----------------------------------------------------"<<endl;
                     tiradas+=1;
                     cout<<endl;
@@ -577,6 +611,6 @@ void turno(int valores[2])
     cout<<"CANTIDAD DE TIRADAS: "<<tiradas<<endl;
     cout<<"-----------------------------------------------------"<<endl;
     cout<<endl;
-    Sleep(2000);
+    Sleep(2000); ///Y ESTO QUE ES
 }
 #endif // FUNCIONES2_H_INCLUDED
