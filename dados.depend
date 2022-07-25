@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1646494539 source:c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<ctime>
+	"funciones.h"
+	"funciones2.h"
+	"carteles.h"
+	"juegoSimul.h"
+	"juegoMult.h"
+	"juegoMaq.h"
+
+1646453144 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\funciones.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+
+1646499275 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\funciones2.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<cstring>
+	<windows.h>
+
+1646447033 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\juegosimul.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<cstring>
+
+1646496870 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\juegomult.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<cstring>
+
+1646500876 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\juegomaq.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<cstring>
+	<windows.h>
+
+1646496321 c:\users\user\documents\denisse\facultad\programación\utn\2021\lab. computación i\tps\tp final\proyecto\lab1\carteles.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+
